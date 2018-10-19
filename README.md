@@ -2,6 +2,8 @@
 
 [Vue Router](https://github.com/vuejs/vue-router) route config generator.
 
+forked from ktsn/vue-route-generator
+
 You may want to use [vue-macula-auto-routing](https://github.com/macula-projects/vue-macula-auto-routing) for auto generating routing or [vue-cli-plugin-macula-auto-routing](https://github.com/macula-projects/vue-cli-plugin-macula-auto-routing) which includes all useful features on routing.
 
 ## Overview
