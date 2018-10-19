@@ -1,6 +1,6 @@
 # vue-macula-route-generator
 
-[Vue Router](https://github.com/vuejs/vue-router) route config generator.
+[Vue Router](https://github.com/vuejs/vue-router) route config generator for multi pages.
 
 forked from ktsn/vue-route-generator
 
