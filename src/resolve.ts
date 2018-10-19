@@ -15,6 +15,7 @@ const routeMetaName = 'route-meta'
 
 export function resolveRoutePaths(
   paths: string[],
+  moduleName: string,
   importPrefix: string,
   nested: boolean,
   readFile: (path: string) => string
@@ -26,11 +27,12 @@ export function resolveRoutePaths(
     setToMap(map, pathToMapPath(path), path)
   })
 
-  return pathMapToMeta(map, importPrefix, nested, readFile)
+  return pathMapToMeta(map, moduleName, importPrefix, nested, readFile)
 }
 
 function pathMapToMeta(
   map: NestedMap<string[]>,
+  moduleName: string,
   importPrefix: string,
   nested: boolean,
   readFile: (path: string) => string,
@@ -40,8 +42,8 @@ function pathMapToMeta(
     const path = map.value
 
     const meta: PageMeta = {
-      name: pathToName(path),
-      specifier: pathToSpecifier(path),
+      name: pathToName(path, moduleName),
+      specifier: pathToSpecifier(path, moduleName),
       path: pathToRoute(path, parentDepth, nested),
       pathSegments: toActualPath(path),
       component: importPrefix + path.join('/')
@@ -67,6 +69,7 @@ function pathMapToMeta(
     if (map.children) {
       meta.children = pathMapChildrenToMeta(
         map.children,
+        moduleName,
         importPrefix,
         nested,
         readFile,
@@ -80,6 +83,7 @@ function pathMapToMeta(
   return map.children
     ? pathMapChildrenToMeta(
         map.children,
+        moduleName,
         importPrefix,
         nested,
         readFile,
@@ -105,6 +109,7 @@ function routePathComparator(a: string[], b: string[]): number {
 
 function pathMapChildrenToMeta(
   children: Map<string, NestedMap<string[]>>,
+  moduleName: string,
   importPrefix: string,
   nested: boolean,
   readFile: (path: string) => string,
@@ -113,7 +118,7 @@ function pathMapChildrenToMeta(
   return Array.from(children.values())
     .reduce<PageMeta[]>((acc, value) => {
       return acc.concat(
-        pathMapToMeta(value, importPrefix, nested, readFile, parentDepth)
+        pathMapToMeta(value, moduleName, importPrefix, nested, readFile, parentDepth)
       )
     }, [])
     .sort((a, b) => {
@@ -160,10 +165,10 @@ function pathToMapPath(segments: string[]): string[] {
   return segments.slice(0, -1).concat(basename(last))
 }
 
-function pathToName(segments: string[]): string {
+function pathToName(segments: string[], moduleName: string): string {
   const last = segments[segments.length - 1]
   segments = segments.slice(0, -1).concat(basename(last))
-
+  segments.unshift(moduleName)
   return segments
     .map(s => {
       return s[0] === '_' ? s.slice(1) : s
@@ -171,8 +176,8 @@ function pathToName(segments: string[]): string {
     .join('-')
 }
 
-function pathToSpecifier(segments: string[]): string {
-  const name = pathToName(segments)
+function pathToSpecifier(segments: string[], moduleName: string): string {
+  const name = pathToName(segments, moduleName)
   const replaced = name
     .replace(/(^|[^a-zA-Z])([a-zA-Z])/g, (_, a, b) => {
       return a + b.toUpperCase()

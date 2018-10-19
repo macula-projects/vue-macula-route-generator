@@ -21,7 +21,7 @@ pages/
 Then run the following script:
 
 ```js
-const { generateRoutes } = require('vue-route-generator')
+const { generateRoutes } = require('vue-macula-auto-routing')
 
 const code = generateRoutes({
   pages: './pages' // Vue page component directory
@@ -30,7 +30,7 @@ const code = generateRoutes({
 console.log(code)
 ```
 
-vue-route-generator will generate like the following code (beautified the indentations etc.):
+vue-macula-auto-routing will generate like the following code (beautified the indentations etc.):
 
 ```js
 export default [
@@ -58,7 +58,7 @@ You can save the code and include router instance:
 
 ```js
 const fs = require('fs')
-const { generateRoutes } = require('vue-route-generator')
+const { generateRoutes } = require('vue-macula-auto-routing')
 
 const code = generateRoutes({
   pages: './pages'

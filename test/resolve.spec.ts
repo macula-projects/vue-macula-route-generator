@@ -24,7 +24,7 @@ describe('Route resolution', () => {
   function test(name: string, paths: string[], nested: boolean = false): void {
     it(name, () => {
       expect(
-        resolveRoutePaths(paths, '@/pages/', nested, mockReadFile)
+        resolveRoutePaths(paths, 'test', '@/pages/', nested, mockReadFile)
       ).toMatchSnapshot()
     })
   }
@@ -60,7 +60,7 @@ describe('Route resolution', () => {
 
   it('throws error when failed to parse route-meta', () => {
     expect(() => {
-      resolveRoutePaths(['invalid-meta.vue'], '@/pages/', false, mockReadFile)
+      resolveRoutePaths(['invalid-meta.vue'], 'test', '@/pages/', false, mockReadFile)
     }).toThrow(
       /Invalid json format of <route-meta> content in invalid-meta\.vue/
     )

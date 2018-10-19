@@ -1,8 +1,8 @@
 {
-  "name": "vue-route-generator",
-  "version": "0.3.2",
-  "author": "katashin",
-  "description": "Vue Router route config generator",
+  "name": "vue-macula-route-generator",
+  "version": "0.3.3",
+  "author": "katashin, Rain Wang",
+  "description": "Vue Router route config generator for multipage",
   "keywords": [
     "Vue",
     "Vue Router",
@@ -15,14 +15,14 @@
   "files": [
     "lib"
   ],
-  "homepage": "https://github.com/ktsn/vue-route-generator",
-  "bugs": "https://github.com/ktsn/vue-route-generator/issues",
+  "homepage": "https://github.com/macula-projects/vue-macula-route-generator",
+  "bugs": "https://github.com/macula-projects/vue-macula-route-generator/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ktsn/vue-route-generator.git"
+    "url": "https://github.com/macula-projects/vue-macula-route-generator.git"
   },
   "scripts": {
-    "prepublishOnly": "npm run clean && npm run test && npm run build",
+    "prepublishOnly": "npm run clean && npm run build",
     "clean": "rm -rf lib",
     "build": "tsc -p src",
     "dev": "jest --watch",

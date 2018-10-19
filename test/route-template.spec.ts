@@ -5,15 +5,15 @@ describe('Route template', () => {
   it('should generate routes', () => {
     const meta: PageMeta[] = [
       {
-        name: 'foo',
-        specifier: 'Foo',
+        name: 'test-foo',
+        specifier: 'TestFoo',
         path: '/foo',
         pathSegments: ['foo'],
         component: '@/pages/foo.vue'
       },
       {
-        name: 'bar',
-        specifier: 'Bar',
+        name: 'test-bar',
+        specifier: 'TestBar',
         path: '/bar',
         pathSegments: ['bar'],
         component: '@/pages/bar.vue'
@@ -26,22 +26,22 @@ describe('Route template', () => {
   it('should generate nested routes', () => {
     const meta: PageMeta[] = [
       {
-        name: 'foo',
-        specifier: 'Foo',
+        name: 'test-foo',
+        specifier: 'TestFoo',
         path: '/foo',
         pathSegments: ['foo'],
         component: '@/pages/foo.vue',
         children: [
           {
-            name: 'bar',
-            specifier: 'FooBar',
+            name: 'test-bar',
+            specifier: 'TestFooBar',
             path: 'bar',
             pathSegments: ['foo', 'bar'],
             component: '@/pages/bar.vue'
           },
           {
-            name: 'baz',
-            specifier: 'FooBaz',
+            name: 'test-baz',
+            specifier: 'TestFooBaz',
             path: 'baz',
             pathSegments: ['foo', 'baz'],
             component: '@/pages/baz.vue'
@@ -56,15 +56,15 @@ describe('Route template', () => {
   it('should generate static import code', () => {
     const meta: PageMeta[] = [
       {
-        name: 'foo',
-        specifier: 'Foo',
+        name: 'test-foo',
+        specifier: 'TestFoo',
         path: '/foo',
         pathSegments: ['foo'],
         component: '@/pages/foo.vue'
       },
       {
-        name: 'bar',
-        specifier: 'Bar',
+        name: 'test-bar',
+        specifier: 'TestBar',
         path: '/bar',
         pathSegments: ['bar'],
         component: '@/pages/bar.vue'
@@ -77,8 +77,8 @@ describe('Route template', () => {
   it('should generate route meta', () => {
     const meta: PageMeta[] = [
       {
-        name: 'foo',
-        specifier: 'Foo',
+        name: 'test-foo',
+        specifier: 'TestFoo',
         path: '/foo',
         pathSegments: ['foo'],
         component: '@/pages/foo.vue',

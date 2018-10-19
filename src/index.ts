@@ -6,6 +6,7 @@ import { resolveRoutePaths } from './resolve'
 
 export interface GenerateConfig {
   pages: string
+  moduleName?: string
   importPrefix?: string
   dynamicImport?: boolean
   nested?: boolean
@@ -13,6 +14,7 @@ export interface GenerateConfig {
 
 export function generateRoutes({
   pages,
+  moduleName = 'index',
   importPrefix = '@/pages/',
   dynamicImport = true,
   nested = false
@@ -24,7 +26,7 @@ export function generateRoutes({
     onlyFiles: true
   })
 
-  const metaList = resolveRoutePaths(pagePaths, importPrefix, nested, file => {
+  const metaList = resolveRoutePaths(pagePaths, moduleName, importPrefix, nested, file => {
     return fs.readFileSync(path.join(pages, file), 'utf8')
   })
 
