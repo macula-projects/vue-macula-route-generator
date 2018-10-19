@@ -1,8 +1,8 @@
-# vue-route-generator
+# vue-macula-route-generator
 
 [Vue Router](https://github.com/vuejs/vue-router) route config generator.
 
-You may want to use [vue-auto-routing](https://github.com/ktsn/vue-auto-routing) for auto generating routing or [vue-cli-plugin-auto-routing](https://github.com/ktsn/vue-cli-plugin-auto-routing) which includes all useful features on routing.
+You may want to use [vue-macula-auto-routing](https://github.com/macula-projects/vue-macula-auto-routing) for auto generating routing or [vue-cli-plugin-macula-auto-routing](https://github.com/macula-projects/vue-cli-plugin-macula-auto-routing) which includes all useful features on routing.
 
 ## Overview
 
@@ -136,9 +136,9 @@ module.exports = [
 
 ## Related Projects
 
-- [vue-cli-plugin-auto-routing](https://github.com/ktsn/vue-cli-plugin-auto-routing): Vue CLI plugin including auto pages and layouts resolution.
+- [vue-cli-plugin-macula-auto-routing](https://github.com/macula-projects/vue-cli-plugin-macula-auto-routing): Vue CLI plugin including auto pages and layouts resolution.
 - [vue-router-layout](https://github.com/ktsn/vue-router-layout): Lightweight layout resolver for Vue Router.
-- [vue-auto-routing](https://github.com/ktsn/vue-auto-routing): Generate Vue Router routing automatically.
+- [vue-macula-auto-routing](https://github.com/macula-projects/vue-macula-auto-routing): Generate Vue Router routing automatically.
 
 ## License
 
