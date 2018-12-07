@@ -1,6 +1,6 @@
 {
   "name": "vue-macula-route-generator",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": "katashin, Rain Wang",
   "description": "Vue Router route config generator for multipage",
   "keywords": [
