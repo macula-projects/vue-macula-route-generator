@@ -22,6 +22,10 @@ function createRoute(meta: PageMeta): string {
 }
 
 function createImport(meta: PageMeta, dynamic: boolean): string {
+  if (meta.component) {
+    // 兼容windows路径
+    meta.component = meta.component.replace(/\\/g, '\/')
+  }
   const code = dynamic
     ? `const ${meta.specifier} = () => import(/* webpackChunkName: "${
         meta.name
